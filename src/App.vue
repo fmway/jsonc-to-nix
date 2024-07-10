@@ -18,7 +18,7 @@ useFavicon(
 <template>
 	<div h-100vh w-full px4 pt-4>
 		<header flex="~ justify-between">
-			<h1 class="text-xl">JSON to Nix</h1>
+			<h1 class="text-xl">JSONC to Nix</h1>
 
 			<div flex="~ row gap-2">
 				<a
@@ -26,7 +26,7 @@ useFavicon(
 					p2
 					hover="bg-active"
 					aria-label="GitHub repository"
-					href="https://github.com/uncenter/json-to-nix"
+					href="https://github.com/fmway/jsonc-to-nix"
 				>
 					<div i-carbon-logo-github />
 				</a>

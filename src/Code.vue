@@ -6,8 +6,7 @@ import githubLightTheme from 'shiki/themes/github-light.mjs';
 import githubDarkTheme from 'shiki/themes/github-dark.mjs';
 import nixLang from 'shiki/langs/nix.mjs';
 
-import { destr } from 'destr';
-import { jsonToNix } from './lib';
+import { jsonToNix, jsonc } from './lib';
 
 const isDarkTheme = useDark();
 
@@ -25,7 +24,7 @@ const copied = ref(false);
 const clipboard = useClipboard();
 
 async function run() {
-	set(converted, jsonToNix(destr(get(input) || null)));
+	set(converted, jsonToNix(jsonc.safeParse(get(input) || null)));
 
 	set(
 		output,
@@ -66,7 +65,7 @@ if (import.meta.hot) {
 		<textarea
 			v-model="input"
 			border="~ base rounded"
-			placeholder="JSON..."
+			placeholder="JSONC..."
 			px3
 			py1
 			:class="`${

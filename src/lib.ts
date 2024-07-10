@@ -1,3 +1,19 @@
+import { parse as jsoncParse } from "@std/jsonc";
+
+export const jsonc = {
+	parse(val: string) {
+		return jsoncParse(val);
+	},
+
+	safeParse(val: string) {
+		try {
+			return this.parse(val);
+		} catch (e) {
+			return null;
+		}
+	}
+};
+
 export function jsonToNix(
 	json: unknown,
 	level: number = 1,

@@ -8,8 +8,8 @@
 		"format": "prettier --write ."
 	},
 	"dependencies": {
+		"@std/jsonc": "npm:@jsr/std__jsonc@1.0.0-rc.2",
 		"@vueuse/core": "^10.11.0",
-		"destr": "^2.0.3",
 		"shiki": "1.9.1",
 		"vue": "^3.4.22"
 	},
