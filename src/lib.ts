@@ -22,7 +22,7 @@ export function jsonToNix(
 	const subindent = '  '.repeat(level - 1);
 	if (
 		typeof json === 'string' ||
-		Number.isInteger(json) ||
+		Number.isFinite(json) ||
 		json === null ||
 		json === true ||
 		json === false
