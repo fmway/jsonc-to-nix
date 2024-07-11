@@ -22,12 +22,13 @@ export function jsonToNix(
 	const subindent = '  '.repeat(level - 1);
 	if (
 		typeof json === 'string' ||
+		typeof json === 'boolean' ||
 		Number.isFinite(json) ||
-		json === null ||
-		json === true ||
-		json === false
+		json === null
 	)
 		return `${JSON.stringify(json)}`;
+	else if (json === undefined)
+		return `${JSON.stringify(null)}`;
 	else if (Array.isArray(json))
 		return `[\n${json.map((item) => `${indent}${jsonToNix(item, level + 1)}`).join('\n')}\n${subindent}]`;
 	else {
