@@ -36,7 +36,7 @@ export function jsonToNix(
 		for (const [key, value] of Object.entries(
 			json as Record<string, boolean | string | null>,
 		)) {
-			nix += `${indent}${key.includes(' ') || key.includes('$') || /^[0-9]/.test(key) ? `"${key}"` : key} = ${jsonToNix(value, level + 1)};\n`;
+			nix += `${indent}${/(^[0-9]|[@ $])/.test(key) ? `"${key}"` : key} = ${jsonToNix(value, level + 1)};\n`;
 		}
 		return nix?.trimEnd() + `\n${subindent}}`;
 	}
